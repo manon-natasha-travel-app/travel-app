@@ -8,26 +8,29 @@ const travelSearch = {}
 // console.log(userHappiness);
 
 //first get user value and then make the ajax request
+
 travelSearch.filterCountry = () => {
-    $("form").on("change", function () {
+
+    $("form").on("submit", function (event) {
+        event.preventDefault();
         userHappiness = $("input[name=happinessValue]").val();
         console.log(userHappiness);
 
         userForest = $("input[name=forestValue]").val();
         console.log(userForest);
 
-        userSize = $("input[name=sizeValue]").val();
-        console.log(userSize);
+        userInternet = $("input[name=internetValue]").val();
+        console.log(userInternet);
 
-        userBigmac = $("input[name=bigmacValue]").val();
-        console.log(userBigmac);
 
+        // userInputs = userHappiness, userForest, userInternet;
         travelSearch.getCountry(userHappiness);
     })
 }
 
 //function to get the location data from the api 
-travelSearch.getCountry = (userHappiness) => {
+
+travelSearch.getCountry = (userInputs) => {
     $.ajax({
         url: "http://inqstatsapi.inqubu.com",
         dataType: "json",
@@ -36,7 +39,7 @@ travelSearch.getCountry = (userHappiness) => {
             api_key: "9524b504493adb49",
             format: "json",
             cmd: "getWorldData",
-            data: "happiness_index,forest_area_percent,density,size,bigmac_index"
+            data: "happiness_index,forest_area_percent,density,size,bigmac_index,internetusers_percent,corruption_index,fifa"
         }
     }).then(function (res) {
         console.log(res);
@@ -45,61 +48,53 @@ travelSearch.getCountry = (userHappiness) => {
         const mappedCountries = res.map(function(index){
             return {
                 countryName: index.countryName,
+                countryCode: index.countryCode,
                 happiness_index: index.happiness_index,
                 forest_area_percent: index.forest_area_percent,
                 density: index.density,
-                size: index.size,
-                bigmac_index: index.bigmac_index
+                corruption_index: index.corruption_index,
+                bigmac_index: index.bigmac_index,
+                internetusers_percent: index.internetusers_percent
             }
         });
         console.log(mappedCountries);
 
         const filterdCountries = mappedCountries.filter(function(item){
-            return item.bigmac_index < (userBigmac + 1) && item.bigmac_index > (userBigmac - 1);
-        //     return item.size < (userSize + 100000) && item.size > (userSize - 100000); 
-        // }).filter(function (item) {
-        //     return item.forest_area_percent < (userForest + 15) && item.forest_area_percent > (userForest - 15);
-        // }).filter(function(item) {
-        //     return item.happiness_index < (userHappiness + 500) && item.happiness_index > (userHappiness - 500);
-        // }).filter(function (item) {
-            // return item.bigmac_index < (userBigmac + 1) && item.bigmac_index > (userBigmac - 1);
+            return item.internetusers_percent < (userInternet + 25) && item.internetusers_percent > (userInternet - 25);
+        }).filter(function (item) {
+            return item.forest_area_percent < (userForest + 15) && item.forest_area_percent > (userForest - 15);
+        }).filter(function(item) {
+            return item.happiness_index < (userHappiness + 500) && item.happiness_index > (userHappiness - 500);
         });
-        
+
+        travelSearch.displayCountry(filterdCountries);
         console.log(filterdCountries);
-
-        // const filterForest = mappedCountries.filter(function (item) {
-        //     return item.forest_area_percent < (userForest + 5) && item.forest_area_percent > (userForest - 5);
-        // });
-        // console.log(filterForest);
-        
-
-        // res.forEach(function(item){
-        //     const happinessIndex = [item.countryName, item.happiness_index];
-            // console.log(happinessIndex);
-
-            // if (userHappiness === lowHappiness){
-            //     console.log(userHappiness);
-            // }
-           
-            // console.log(lowHappiness[item][countryName]);
-            // const midHappiness = [item.happiness_index >= 4001 && item.happiness_index <= 5500];
-            // const highHappiness = [item.happiness_index >=5501 && item.happiness_index <=7600];
-            
-            // if (item.happiness_index >= 4500 && item.happiness_index <= 5000) {
-            //     console.log(item.countryName,item.happiness_index);
-            // };
-        // });
-        // const countries = res;
-
-        // const lowHappiness = (countries.happiness_index >= 2900 && countries.happiness_index <= 4000);
-        // console.log(lowHappiness);
-
-        const lowHappy = countries.filter(function (country) {
-            return country === lowHappiness
-        });
     });
 }
 
+
+
+
+travelSearch.displayCountry = (filterdCountries) => {
+    if(filterdCountries.length === 0) {
+        $(".result-container").append("<p>Sorry there are no countries with those requirements. Sort Again!</p> <button>Sort!</button>");
+    } else {
+        filterdCountries.forEach(function(item){
+            // $('body').text(item.countryName);
+            console.log(item);
+            // event.preventDefault();
+            $(".result-container").append(`<img src="images/flags/${item.countryCode}.png">`);
+        });
+    };
+
+};
+
+
+$('button').on('click', function () {
+    $('html').animate({
+        scrollTop: $('#scrollStop').offset().top
+    }, 1000);
+});
 
 
 //creates function to launch our app on page load

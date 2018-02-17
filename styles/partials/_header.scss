@@ -1,0 +1,34 @@
+header {
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+}
+
+.header-banner {
+    @include polaroid(80vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+.next {
+    text-decoration: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    right: 0;
+    transform: rotate(90deg);
+
+    .fa-plane {
+        font-size: 20px;
+        color: black;
+        text-align: center;
+    }
+}

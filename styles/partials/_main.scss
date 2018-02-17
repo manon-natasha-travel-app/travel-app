@@ -1,8 +1,11 @@
-.wrapper{
-    max-width: 1180px;
-    margin: 0 auto;
-}
-
 input[type=range]{
     width: 100%;
+}
+
+h2{
+    text-align: center;
+}
+.question {
+    @include polaroid(70vh);
+    height: 60vh;
 }

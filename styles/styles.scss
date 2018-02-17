@@ -1,2 +1,35 @@
-@import "partials/_setup.scss";
-@import "partials/_main.scss"
+@mixin polaroid($height) {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    height: $height;
+    margin: 25px auto;
+    margin-bottom: 100px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+@import "partials/setup.scss";
+@import "partials/header.scss";
+@import "partials/main.scss";
+@import "partials/results.scss";
+
+
+
+body {
+    font-family: 'Lateef', cursive;
+}
+
+h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.wrapper{
+    max-width: 1180px;
+    // margin: 0 auto;
+}
+
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Lateef', cursive;
+
