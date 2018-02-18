@@ -77,7 +77,7 @@ travelSearch.getCountry = (userInputs) => {
 
 travelSearch.displayCountry = (filterdCountries) => {
     if(filterdCountries.length === 0) {
-        $(".result-container").append("<p>Sorry there are no countries with those requirements. Sort Again!</p> <button>Sort!</button>");
+        $(".result-container").append("<p>Sorry there are no countries with those requirements. Sort Again!</p> <button class='reset'>Sort!</button>");
     } else {
         filterdCountries.forEach(function(item){
             // $('body').text(item.countryName);
@@ -88,6 +88,10 @@ travelSearch.displayCountry = (filterdCountries) => {
     };
 
 };
+
+$('.reset').on('click', function(){
+    $('form').empty("result-container");
+});
 
 
 $('button').on('click', function () {
