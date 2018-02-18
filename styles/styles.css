@@ -1,3 +1,13 @@
+.polaroid, .header-banner, .question, .result-container .result-flags {
+  background-size: cover;
+  background-position: center;
+  width: 95%;
+  height: 80vh;
+  margin: 25px auto;
+  margin-bottom: 100px;
+  -webkit-box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5); }
+
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
 
@@ -134,21 +144,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 header {
   position: relative;
-  font-family: 'Raleway', sans-serif; }
+  font-family: "Raleway", sans-serif; }
 
 .header-banner {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/travelApp-banner.jpg");
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 95%;
-  height: 80vh;
-  margin: 25px auto;
-  margin-bottom: 100px;
-  -webkit-box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,7 +160,11 @@ header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: white; }
+  color: white;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/travelApp-banner.jpg");
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg"); }
 
 .next {
   text-decoration: none;
@@ -177,10 +179,11 @@ header {
   right: 0;
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  transform: rotate(90deg); }
+  transform: rotate(90deg);
+  background-color: #141178; }
   .next .fa-plane {
     font-size: 20px;
-    color: black;
+    color: white;
     text-align: center; }
 
 input[type=range] {
@@ -190,31 +193,119 @@ h2 {
   text-align: center; }
 
 .question {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/travelApp-banner.jpg");
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 95%;
-  height: 70vh;
-  margin: 25px auto;
-  margin-bottom: 100px;
-  -webkit-box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
-  height: 60vh; }
+  background-image: url("./../images/image-01.jpg"); }
+
+.rotate {
+  -webkit-animation: rotate 0.5s both;
+  animation: rotate 0.5s both; }
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg); } }
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg); } }
+
+.results {
+  position: relative; }
 
 .result-container {
-  background-color: orange;
+  background-color: #fff;
   width: 100%;
-  height: 100vh; }
+  height: 100vh;
+  border-top: 5px solid #141178;
+  color: #141178; }
+  .result-container .result-flags {
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+    .result-container .result-flags h2 {
+      padding-top: 50px; }
+
+.flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  @media (max-width: 768px) {
+    .flag {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
+  .flag img {
+    border: 1px solid grey;
+    min-height: 180px; }
+
+.flag img:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-box-shadow: 0px 0px 5px black;
+  box-shadow: 0px 0px 5px black; }
+
+.hidden {
+  display: none; }
+
+.overlay {
+  position: absolute; }
+
+.greyed {
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1; }
+
+.pop-up {
+  position: absolute;
+  margin: 0 auto;
+  width: 90vw;
+  height: 80vh;
+  top: 30px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 30px;
+  background: white;
+  z-index: 2; }
 
 body {
-  font-family: 'Lateef', cursive; }
+  font-family: "Lateef", cursive;
+  background-color: #F5EEE0;
+  text-align: center; }
 
 h2 {
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: 1px; }
 
-.wrapper {
-  max-width: 1180px; }
+footer {
+  background-color: white; }
+  footer p {
+    color: #141178;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0; }

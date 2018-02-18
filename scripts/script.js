@@ -77,13 +77,33 @@ travelSearch.getCountry = (userInputs) => {
 
 travelSearch.displayCountry = (filterdCountries) => {
     if(filterdCountries.length === 0) {
-        $(".result-container").append("<p>Sorry there are no countries with those requirements. Sort Again!</p> <button>Sort!</button>");
+        $(".result-flags").append("<h2>Sorry there are no countries with those requirements. Sort Again!</h2> <button>Sort!</button>");
     } else {
         filterdCountries.forEach(function(item){
-            // $('body').text(item.countryName);
             console.log(item);
             // event.preventDefault();
-            $(".result-container").append(`<img src="images/flags/${item.countryCode}.png">`);
+            $(".flag").append(`<div class=${item.countryCode}><img  src="images/flags/${item.countryCode}.png"></div>`); 
+
+            $(`.${item.countryCode}`).on("click", function () {
+                $(".pop-up").toggleClass("hidden");
+                $(".overlay").toggleClass("greyed");
+                
+                const title = $('<h2>').text(`Your next destination should be ${item.countryName}`)
+                
+                const bigmac = parseInt(item.bigmac_index);
+                
+                const info = $('<p>').text(`You will spend approximately $${bigmac * 4} on a two week vacation if you only eat Big Macs`)
+                
+                if (`${item.countryCode}` === item.countryCode) {
+                    ($('.pop-up').append(title, info)).show();
+                } else {
+    
+                }
+            });
+            $(".pop-up").on("click", function(){
+                $(this).toggleClass("hidden");
+                $(".overlay").toggleClass("greyed");
+            })
         });
     };
 
@@ -95,7 +115,6 @@ $('button').on('click', function () {
         scrollTop: $('#scrollStop').offset().top
     }, 1000);
 });
-
 
 //creates function to launch our app on page load
 travelSearch.init = () => {

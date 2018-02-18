@@ -6,6 +6,18 @@ h2{
     text-align: center;
 }
 .question {
-    @include polaroid(70vh);
-    height: 60vh;
+    @extend .polaroid;
+    background-image: url("./../images/image-01.jpg");
+    
+}
+.rotate{
+    animation:rotate 0.5s both;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(450deg);
+    }
 }
