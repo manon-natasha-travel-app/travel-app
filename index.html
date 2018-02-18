@@ -17,7 +17,7 @@
         <div class="header-banner wrapper">
             <h2>Looking for you next travel destination?</h2>
             <h1>Where do you wanna go?</h1>
-            <p>Before we can create your perfect travel experience, we need to find out what you're looking for. (it won’t take longer than
+            <p>Before we can create your perfect travel experience, we need to find out what you're looking for. </br> (it won’t take longer than
             a few minutes)</p>
         </div>
         <button class="next">
@@ -41,7 +41,7 @@
                 </div>
             </section>
 
-            <section class="polaroid-container">
+            <section id="scrollStop" class="polaroid-container">
                 <div>
                     <label for="forestValue wrapper">
                         <h2>
@@ -54,7 +54,7 @@
                 </div>
             </section>
 
-            <section class="polaroid-container">
+            <section id="scrollStop" class="polaroid-container">
                 <div>
                     <label for="internetValue">
                         <h2>
@@ -70,12 +70,17 @@
             <div class="wrapper">
                 <input type="submit">
             </div>
-
         </form>
-        <section>
+        
+        <section id="scrollStop">
+            <div class="overlay"></div>
             <div class="result-container">
-                <h2></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt perspiciatis nesciunt, beatae illum non quod placeat cum repellendus sapiente minus consequatur ducimus vero fugiat? Error voluptatum enim nihil minima excepturi.</p>
+                <!-- <div class="result-flags"> -->
+                    <div class="flag">
+                        <div class="pop-up hidden">
+                        </div>
+                    </div>
+                <!-- </div> -->
             </div>
         </section>
     </main>
@@ -83,8 +88,8 @@
     <!-- === Page footer goes here === -->
 
     <footer>
-        <div class="footer-container">
-        
+        <div class="footer-container clearfix">
+            <p class="copyright">© 2018 Natasha Teng & Manon Rugge, All Rights Reserved</p>
         </div>
     </footer>
 

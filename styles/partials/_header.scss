@@ -1,15 +1,17 @@
 header {
     position: relative;
-    font-family: 'Raleway', sans-serif;
+    font-family: $heading;
+    
 }
 
 .header-banner {
-    @include polaroid(80vh);
+    @extend .polaroid;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
 }
 
 
@@ -25,10 +27,11 @@ header {
     left: 0;
     right: 0;
     transform: rotate(90deg);
+    background-color: $secondary;
 
     .fa-plane {
         font-size: 20px;
-        color: black;
+        color: white;
         text-align: center;
     }
 }
