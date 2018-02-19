@@ -1,18 +1,17 @@
 .results{
     position: relative;
 }
-.result-container {
+
+.result-container { 
     background-color: #fff;
     width: 100%;
     height: 100vh;
     border-top: 5px solid $secondary;
     color: $secondary;
-    .result-flags {
-        @extend .polaroid;
-        box-shadow: none;
-        h2 {
-            padding-top: 50px;
-        }
+    @extend .polaroid;
+    box-shadow: none;
+    h2 {
+        padding-top: 50px;
     }
 }
 .flag{
@@ -44,6 +43,8 @@
   }
 .overlay{
     position: absolute;
+    // width: 100vw;
+    // height: 100vh;
 }
 .greyed{
     background: rgba(0,0,0,0.5);

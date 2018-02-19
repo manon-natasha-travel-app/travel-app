@@ -20,7 +20,7 @@
             <p>Before we can create your perfect travel experience, we need to find out what you're looking for. </br> (it won’t take longer than
             a few minutes)</p>
         </div>
-        <button class="next">
+        <button class="next toCountryParams">
             <i class="fas fa-plane"></i>
         </button>
     </header>
@@ -30,7 +30,7 @@
     <main>
         <form id="countryParams">
 
-            <section id="scrollStop" class="polaroid-container">
+            <section id="firstQuestion" class="polaroid-container">
                 <div>
                     <label for="happinessValue">
                         <h2>Looking for a place where the glass is half empty or half full?</h2>
@@ -39,9 +39,12 @@
                 <div class=" question slide-container wrapper">
                     <input type="range" min="2500" max="7600" step="500" class="slider" id="happinessValue" name="happinessValue">
                 </div>
+                <button class="next toSecondQuestion">
+                    <i class="fas fa-plane"></i>
+                </button>
             </section>
 
-            <section id="scrollStop" class="polaroid-container">
+            <section id="secondQuestion" class="polaroid-container">
                 <div>
                     <label for="forestValue wrapper">
                         <h2>
@@ -52,9 +55,12 @@
                 <div class="question slide-container wrapper">
                     <input type="range" min="0" max="100" step="5%" class="slider" id="forestValue" name="forestValue">
                 </div>
+                <button class="next toThirdQuestion">
+                    <i class="fas fa-plane"></i>
+                </button>
             </section>
 
-            <section id="scrollStop" class="polaroid-container">
+            <section id="thirdQuestion" class="polaroid-container">
                 <div>
                     <label for="internetValue">
                         <h2>
@@ -65,6 +71,9 @@
                 <div class="question slide-container wrapper">
                     <input type="range" min="0" max="100" step="5" class="slider" id="internetValue" name="internetValue">
                 </div>
+                <!-- <button class="next">
+                    <i class="fas fa-plane"></i>
+                </button> -->
             </section>
 
             <div class="wrapper">
@@ -72,15 +81,13 @@
             </div>
         </form>
         
-        <section id="scrollStop">
+        <section id="scrollStop" class="results">
             <div class="overlay"></div>
             <div class="result-container">
-                <!-- <div class="result-flags"> -->
-                    <div class="flag">
-                        <div class="pop-up hidden">
-                        </div>
+                <div class="flag">
+                    <div class="pop-up hidden">
                     </div>
-                <!-- </div> -->
+                </div>
             </div>
         </section>
     </main>

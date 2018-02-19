@@ -39,7 +39,7 @@ travelSearch.getCountry = (userInputs) => {
             api_key: "9524b504493adb49",
             format: "json",
             cmd: "getWorldData",
-            data: "happiness_index,forest_area_percent,density,size,bigmac_index,internetusers_percent,corruption_index,fifa"
+            data: "happiness_index,forest_area_percent,density,size,bigmac_index,internetusers_percent,corruption_index,fifa,population"
         }
     }).then(function (res) {
         console.log(res);
@@ -54,7 +54,8 @@ travelSearch.getCountry = (userInputs) => {
                 density: index.density,
                 corruption_index: index.corruption_index,
                 bigmac_index: index.bigmac_index,
-                internetusers_percent: index.internetusers_percent
+                internetusers_percent: index.internetusers_percent,
+                population: index.population
             }
         });
         console.log(mappedCountries);
@@ -77,31 +78,46 @@ travelSearch.getCountry = (userInputs) => {
 
 travelSearch.displayCountry = (filterdCountries) => {
     if(filterdCountries.length === 0) {
-        $(".result-flags").append("<h2>Sorry there are no countries with those requirements. Sort Again!</h2> <button>Sort!</button>");
+        $(".flag").append("<h2>Sorry there are no countries with those requirements. Sort Again!</h2>  <button class='reset'>Sort!</button>");
+        $('.reset').on('click', function () {
+            $('html').animate({
+                scrollTop: $('#countryParams').offset().top
+            }, 1000);
+            $('.flag').empty();
+            console.log("This is clicked");
+        });
     } else {
         filterdCountries.forEach(function(item){
             console.log(item);
             // event.preventDefault();
-            $(".flag").append(`<div class=${item.countryCode}><img  src="images/flags/${item.countryCode}.png"></div>`); 
-
+            $(".flag").append(`<div class=${item.countryCode}><img  src="images/flags/${item.countryCode}.png"></div><button class='reset'>Sort!</button>`);
+            $('.reset').on('click', function () {
+                $('html').animate({
+                    scrollTop: $('#countryParams').offset().top
+                }, 1000);
+                $('.flag').empty();
+                console.log("This is clicked"); 
+            });
             $(`.${item.countryCode}`).on("click", function () {
                 $(".pop-up").toggleClass("hidden");
                 $(".overlay").toggleClass("greyed");
                 
                 const title = $('<h2>').text(`Your next destination should be ${item.countryName}`)
+                const population_n = parseInt(item.population).toLocaleString();
+                const population = $('<p>').text(`This country is worth checking out and ${population_n} locals will give you a warm welcome!`)
                 
                 const bigmac = parseInt(item.bigmac_index);
                 
                 const info = $('<p>').text(`You will spend approximately $${bigmac * 4} on a two week vacation if you only eat Big Macs`)
                 
                 if (`${item.countryCode}` === item.countryCode) {
-                    ($('.pop-up').append(title, info)).show();
+                    ($('.pop-up').append(title, population, info));
                 } else {
     
                 }
             });
             $(".pop-up").on("click", function(){
-                $(this).toggleClass("hidden");
+                $(this).toggleClass("hidden").empty();
                 $(".overlay").toggleClass("greyed");
             })
         });
@@ -109,20 +125,29 @@ travelSearch.displayCountry = (filterdCountries) => {
 
 };
 
-$('.reset').on('click', function(){
-    $('form').empty("result-container");
-});
+travelSearch.scrollNext = () => {
+    $('.toCountryParams').on('change', function () {
+        $('html').animate({
+            scrollTop: $('#countryParams').offset().top
+        }, 1000);
+    });
+    $('.toSecondQuestion').on('change', function () {
+        $('html').animate({
+            scrollTop: $('#secondQuestion').offset().top
+        }, 1000);
+    });
+    $('.toThirdQuestion').on('change', function () {
+        $('html').animate({
+            scrollTop: $('#thirdQuestion').offset().top
+        }, 1000);
+    });
+}
 
-
-$('button').on('click', function () {
-    $('html').animate({
-        scrollTop: $('#scrollStop').offset().top
-    }, 1000);
-});
 
 //creates function to launch our app on page load
 travelSearch.init = () => {
     travelSearch.filterCountry();
+    travelSearch.scrollNext();
 }
 
 //document ready

@@ -5,10 +5,23 @@ input[type=range]{
 h2{
     text-align: center;
 }
+#firstQuestion,
+#secondQuestion,
+#thirdQuestion{
+    position: relative;
+}
 .question {
     @extend .polaroid;
+    position: relative;
     background-image: url("./../images/image-01.jpg");
-    
+    &::before{
+        content:"Half Empty";
+        position: absolute;
+        display: block;
+        transform: translateY(0%);
+        top:50%;
+        left:0;
+    }
 }
 .rotate{
     animation:rotate 0.5s both;

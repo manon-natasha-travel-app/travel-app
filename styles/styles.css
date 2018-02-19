@@ -1,4 +1,4 @@
-.polaroid, .header-banner, .question, .result-container .result-flags {
+.polaroid, .header-banner, .question, .result-container {
   background-size: cover;
   background-position: center;
   width: 95%;
@@ -192,8 +192,23 @@ input[type=range] {
 h2 {
   text-align: center; }
 
+#firstQuestion,
+#secondQuestion,
+#thirdQuestion {
+  position: relative; }
+
 .question {
+  position: relative;
   background-image: url("./../images/image-01.jpg"); }
+  .question::before {
+    content: "Half Empty";
+    position: absolute;
+    display: block;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    top: 50%;
+    left: 0; }
 
 .rotate {
   -webkit-animation: rotate 0.5s both;
@@ -223,12 +238,11 @@ h2 {
   width: 100%;
   height: 100vh;
   border-top: 5px solid #141178;
-  color: #141178; }
-  .result-container .result-flags {
-    -webkit-box-shadow: none;
-    box-shadow: none; }
-    .result-container .result-flags h2 {
-      padding-top: 50px; }
+  color: #141178;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  .result-container h2 {
+    padding-top: 50px; }
 
 .flag {
   display: -webkit-box;
