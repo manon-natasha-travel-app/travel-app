@@ -1,12 +1,41 @@
 .polaroid, .header-banner, .question, .result-container {
   background-size: cover;
   background-position: center;
-  width: 95%;
-  height: 80vh;
+  width: 90%;
+  height: 90vh;
   margin: 25px auto;
   margin-bottom: 100px;
+  border-radius: 10px;
   -webkit-box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5); }
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+button {
+  text-decoration: none;
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  left: 0;
+  right: 0; }
+  button img {
+    font-size: 20px;
+    color: papayawhip;
+    text-align: center;
+    width: 100%; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
@@ -144,7 +173,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 header {
   position: relative;
-  font-family: "Raleway", sans-serif; }
+  font-family: "Just Another Hand", cursive; }
 
 .header-banner {
   display: -webkit-box;
@@ -166,49 +195,39 @@ header {
   background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
   background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg"); }
 
-.next {
-  text-decoration: none;
-  border: none;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  border-radius: 50%;
-  position: absolute;
-  bottom: -70px;
-  left: 0;
-  right: 0;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  background-color: #141178; }
-  .next .fa-plane {
-    font-size: 20px;
-    color: white;
-    text-align: center; }
+.slider {
+  width: 60%;
+  margin-top: 400px;
+  border-radius: none;
+  outline: none;
+  -webkit-transition: .2s;
+  -webkit-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s; }
 
-input[type=range] {
-  width: 100%; }
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none; }
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none; }
 
 h2 {
   text-align: center; }
 
-#firstQuestion,
-#secondQuestion,
-#thirdQuestion {
-  position: relative; }
-
 .question {
-  position: relative;
-  background-image: url("./../images/image-01.jpg"); }
-  .question::before {
-    content: "Half Empty";
-    position: absolute;
-    display: block;
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-    top: 50%;
-    left: 0; }
+  background-image: url("./../images/travelApp-banner.jpg"); }
 
 .rotate {
   -webkit-animation: rotate 0.5s both;
@@ -230,17 +249,21 @@ h2 {
     -webkit-transform: rotate(450deg);
     transform: rotate(450deg); } }
 
+.polaroid-container {
+  position: relative; }
+
 .results {
   position: relative; }
 
 .result-container {
   background-color: #fff;
+  padding: 100px;
   width: 100%;
   height: 100vh;
-  border-top: 5px solid #141178;
   color: #141178;
   -webkit-box-shadow: none;
-  box-shadow: none; }
+  box-shadow: none;
+  margin-bottom: 0; }
   .result-container h2 {
     padding-top: 50px; }
 
@@ -266,7 +289,8 @@ h2 {
       flex-direction: column; } }
   .flag img {
     border: 1px solid grey;
-    min-height: 180px; }
+    min-height: 180px;
+    margin: 10px; }
 
 .flag img:hover {
   -webkit-transform: scale(1.1);
@@ -277,6 +301,15 @@ h2 {
   transition: all .5s ease-in-out;
   -webkit-box-shadow: 0px 0px 5px black;
   box-shadow: 0px 0px 5px black; }
+
+.fa-spinner {
+  font-size: 50px;
+  color: #141178;
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  left: 50%;
+  right: 0; }
 
 .hidden {
   display: none; }
@@ -301,18 +334,36 @@ h2 {
   bottom: 0;
   right: 0;
   left: 0;
-  border-radius: 30px;
+  padding: 50px;
   background: white;
-  z-index: 2; }
+  z-index: 2;
+  font-family: "Open Sans", sans-serif;
+  text-transform: lowercase; }
+  .pop-up h2 {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    color: #141178;
+    font-size: 60px;
+    font-family: "Just Another Hand", cursive; }
 
 body {
-  font-family: "Lateef", cursive;
-  background-color: #F5EEE0;
-  text-align: center; }
+  font-family: "Just Another Hand", cursive;
+  background-color: papayawhip;
+  text-align: center;
+  text-transform: uppercase; }
 
 h2 {
-  font-size: 24px;
-  letter-spacing: 1px; }
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: white; }
+
+h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  color: white; }
+
+p {
+  line-height: 25px; }
 
 footer {
   background-color: white; }

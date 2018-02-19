@@ -1,18 +1,42 @@
-$primary: #F5EEE0;
+$primary: white;
 $secondary: #141178;
-// $background: #f6f6f6;
-$heading: 'Raleway', sans-serif;
-$secHeading: 'Lateef', cursive;
+$background: white;
+$heading: 'Just Another Hand', cursive;
+$secHeading: 'Open Sans', sans-serif;
 
 .polaroid{
     background-size: cover;
     background-position: center;
-    width: 95%;
-    height: 80vh;
+    width: 90%;
+    height: 90vh;
     margin: 25px auto;
     margin-bottom: 100px;
+    border-radius: 10px;
     box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+
+button {
+    text-decoration: none;
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    img {
+        font-size: 20px;
+        color: papayawhip;
+        text-align: center;
+        width: 100%;
+    }
+}
+
 
 @import "partials/setup.scss";
 @import "partials/header.scss";
@@ -22,16 +46,29 @@ $secHeading: 'Lateef', cursive;
 
 
 body {
-    font-family: $secHeading;
-    background-color: $primary;
+    font-family: $heading;
+    background-color: papayawhip;
     text-align: center;
+    text-transform: uppercase;
 
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 1px;
+    color: $primary;
 }
+
+h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+    color: $primary;
+}
+
+p {
+    line-height: 25px;
+}
+
 
 // .wrapper{
 //     max-width: 1180px;
