@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Document</title>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lateef|Raleway:400,700" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand|Open+Sans" rel="stylesheet">
 </head>
 <body>
 
@@ -15,14 +15,18 @@
     
     <header>
         <div class="header-banner wrapper">
-            <h2>Looking for you next travel destination?</h2>
-            <h1>Where do you wanna go?</h1>
-            <p>Before we can create your perfect travel experience, we need to find out what you're looking for. </br> (it won’t take longer than
+            <h1>Choose your next</br> travel destination</h1>
+            <p>Let's find out what you're looking for!</br> (it won’t take longer than
             a few minutes)</p>
+            <button id="firstButton">
+                <img src="images/plane.svg" alt="">
+            </button>
         </div>
-        <button class="next">
+
+<!--         
+        <button id="firstButton" onclick="scroll('.firstDiv')">
             <i class="fas fa-plane"></i>
-        </button>
+        </button> -->
     </header>
 
     <!-- === Page main content goes here === -->
@@ -30,59 +34,73 @@
     <main>
         <form id="countryParams">
 
-            <section id="scrollStop" class="polaroid-container">
-                <div>
-                    <label for="happinessValue">
-                        <h2>Looking for a place where the glass is half empty or half full?</h2>
-                    </label>
-                </div>
+            <!-- === First question goes here === -->
+
+            <section id="scrollStopSecond" class="polaroid-container firstDiv">
                 <div class=" question slide-container wrapper">
-                    <input type="range" min="2500" max="7600" step="500" class="slider" id="happinessValue" name="happinessValue">
+                    <label for="happinessValue">
+                        <h2>Do you want a place where the glass of the locals is half empty or half full?</h2>
+                    </label>
+                    <input type="range" min="2500" max="7600" step="500" class="slider" id="happinessValue" name="happinessValue"/>
+                    <button id="secButton">
+                        <img src="images/plane.svg" alt="">
+                    </button>
                 </div>
             </section>
 
-            <section id="scrollStop" class="polaroid-container">
-                <div>
+            <!-- === Second question goes here === -->
+
+            <section id="scrollStop" class="polaroid-container secDiv">
+                <div class="question slide-container wrapper">
                     <label for="forestValue wrapper">
                         <h2>
-                            How Green?
+                            Do you wanna get lost in the forrest or in bustling city streets?
                         </h2>
                     </label>
-                </div>
-                <div class="question slide-container wrapper">
-                    <input type="range" min="0" max="100" step="5%" class="slider" id="forestValue" name="forestValue">
+                    <input type="range" min="0" max="100" step="5%" class="slider" id="forestValue" name="forestValue"/>
+                    <button id="thirdButton">
+                        <img src="images/plane.svg" alt="">
+                    </button>
                 </div>
             </section>
 
-            <section id="scrollStop" class="polaroid-container">
-                <div>
+            <!-- === Third question goes here === -->
+
+            <section id="scrollStop" class="polaroid-container thirdDiv">
+                <div class="question slide-container wrapper">
                     <label for="internetValue">
                         <h2>
-                            How many internet users?
+                                Do you wanna be able to be online all day or spend far too much time trying to connect with the outside world?
                         </h2>
                     </label>
-                </div>
-                <div class="question slide-container wrapper">
-                    <input type="range" min="0" max="100" step="5" class="slider" id="internetValue" name="internetValue">
+                    <input type="range" min="0" max="100" step="5" class="slider" id="internetValue" name="internetValue"/>
+                    <button type="submit" id="fourthButton"/>
                 </div>
             </section>
 
-            <div class="wrapper">
+            <!-- === Submit input goes here === -->
+<!-- 
+            <div class="submitButton wrapper">
                 <input type="submit">
-            </div>
+            </div> -->
+
         </form>
-        
-        <section id="scrollStop">
+
+    <!-- === Page results goes here === -->
+
+        <section id="scrollStop" class="results fourthDiv hidden">
             <div class="overlay"></div>
             <div class="result-container">
-                <!-- <div class="result-flags"> -->
-                    <div class="flag">
-                        <div class="pop-up hidden">
-                        </div>
+                <div class="flag">
+                    <div class="pop-up hidden">
                     </div>
-                <!-- </div> -->
+                </div>
+            </div>
+            <div class="loading">
+                <i class="fas fa-spinner"></i>
             </div>
         </section>
+
     </main>
 
     <!-- === Page footer goes here === -->
@@ -94,7 +112,8 @@
     </footer>
 
     <!-- === Page script goes here === -->
-    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 
     <script src="scripts/script.js"></script>
