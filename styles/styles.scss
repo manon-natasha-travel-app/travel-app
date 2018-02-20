@@ -1,6 +1,6 @@
 $primary: #fff;
-$secondary: #e41414;
-$background: #F4F1DD;
+$secondary: #141178;
+$background: #f6f3e5;
 $heading: 'Just Another Hand', cursive;
 $secHeading: 'Open Sans', sans-serif;
 
@@ -22,7 +22,6 @@ $secHeading: 'Open Sans', sans-serif;
 
 button {
     text-decoration: none;
-    // border: 2px solid white;
     width: 50px;
     height: 50px;
     margin: 0 auto;
@@ -51,31 +50,24 @@ body {
     background-color: $background;
     text-align: center;
     text-transform: uppercase;
-
+    letter-spacing: 1px;
+    color: $primary;
 }
 
 h2 {
     font-size: 22px;
-    letter-spacing: 1px;
-    color: $primary;
+    line-height: 30px;
+   
 }
 
 h1 {
     font-size: 60px;
     text-transform: uppercase;
-    color: $primary;
 }
 
 p {
     line-height: 25px;
 }
-
-
-// .wrapper{
-//     max-width: 1180px;
-//     // margin: 0 auto;
-// }
-
 
 footer {
     background-color:white;

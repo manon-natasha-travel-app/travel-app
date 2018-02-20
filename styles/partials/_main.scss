@@ -1,7 +1,6 @@
 
 .slider {
     width: 60%;
-    margin-top: 400px;
     border-radius: none;   
     outline: none;
     -webkit-transition: .2s;
@@ -28,23 +27,26 @@
     border: none;
 }
 
-h2{
-    text-align: center;
+.question-01,
+.question-02,
+.question-03 {
+    @extend .polaroid;
+    padding: 250px 0px 0px 0px;
+    h2  {
+        font-size: 18px;
+        padding-bottom: 20px;
+    } 
 }
 
-
 .question-01 {
-    @extend .polaroid;
-    background-image: url("./../images/mountain_filter.jpg");  
+    background-image: url("./../images/happy_filter.jpg");     
 }
 
 .question-02 {
-    @extend .polaroid;
     background-image: url("./../images/forrest_filter.jpg");  
 }
 
 .question-03 {
-    @extend .polaroid;
     background-image: url("./../images/internet_filter.jpg");  
 }
 
@@ -65,12 +67,76 @@ h2{
     position: relative;
 }
 
-
 #fourthButton {
-    color: $primary;
+    color: $secondary;
+    padding-top: 5px;
     text-align: center;
     letter-spacing: 5px;
     width: 100px;
     height: 40px;
     border-radius: 30px;
+}
+
+
+.happinessQuestion,
+.forestQuestion,
+.internetQuestion{
+    width: 90%;
+}
+.happinessQuestion{
+    position: relative;
+    &::before{
+        content:"half empty";
+        position: absolute;
+        left:30px;
+        bottom:0;
+        color: white;
+        font-size: 18px;
+    }
+    &::after{
+        content:"half full";
+        position: absolute;
+        right:30px;
+        bottom:0;
+        color: white;
+        font-size: 18px;
+    }
+}
+.forestQuestion{
+    position: relative;
+    &::before{
+        content:"big city";
+        position: absolute;
+        left:30px;
+        bottom:0;
+        color: white;
+        font-size: 18px;
+    }
+    &::after{
+        content:"full forest";
+        position: absolute;
+        right:30px;
+        bottom:0;
+        color: white;
+        font-size: 18px;
+    }
+}
+.internetQuestion{
+   position: relative;
+    &::before{
+        content:"low connection";
+        position: absolute;
+        left:30px;
+        bottom:0;
+        color: white;
+        font-size: 18px;
+    }
+    &::after{
+        content:"high connection";
+        position: absolute;
+        right: 30px;
+        bottom:0;
+        color: white;
+        font-size: 18px;
+    } 
 }

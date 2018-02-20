@@ -1,11 +1,9 @@
 header {
     position: relative;
-    font-family: $heading;
     h1 {
         color: $secondary;
         font-size: 90px;
-    }
-    
+    } 
 }
 
 .header-banner {
@@ -14,6 +12,5 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: $primary;
     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
 }

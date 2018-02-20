@@ -79,7 +79,7 @@ function scroll(selectDiv, selectButton) {
     const scrollTopValue = scrollTopTarget - marginTop;
     $('html').animate({
         scrollTop: scrollTopValue,
-    }, 1000);
+    }, 2000);
     
     if (selectButton !== undefined){
         selectButton.addClass("rotate");
@@ -118,7 +118,8 @@ $('#thirdButton').on('click', function (e) {
 
 travelSearch.displayCountry = (filterdCountries) => {
     if (filterdCountries.length === 0) {
-        $(".flag").append("<h2>Sorry there are no countries with those requirements. Sort Again!</h2>  <button class='reset'>Sort!</button>");
+        // $(".flag").append("<h2>Sorry there are no countries with those requirements. Sort Again!</h2>  <button class='reset'>Sort!</button>");
+        $(".flag").append("<div class= 'unknown'><h3>Sorry there are no countries with those requirements. Sort Again!</h3> <button class='reset'>Sort!</button></div>");
 
         $('.reset').on('click', function () {
             $('html').animate({
@@ -130,6 +131,7 @@ travelSearch.displayCountry = (filterdCountries) => {
     } else {
         filterdCountries.forEach(function(item){
             console.log(item);
+
             $(".flag").append(`<div class=${item.countryCode}><img  src="images/flags/${item.countryCode}.png"></div>`); 
 
             $(`.${item.countryCode}`).on("click", function () {
@@ -145,7 +147,7 @@ travelSearch.displayCountry = (filterdCountries) => {
 
                 const bigmacInfo = $('<p>').text(`On a two week vacation, you will spend approximately $${bigmac * 4} if you only eat Big Macs!`)
 
-                const density = $('<p>').text(`Per square kilometer there are approximateld ${item.density} other personson. Time to get nice and cozy with the locals!`)
+                const density = $('<p>').text(`Per square kilometer there are approximateld ${item.density} other persons. Time to get nice and cozy with the locals!`)
 
                 const tourist = $('<p>').text(`Last year ${item.tourist_arrivals} other people had the same brilliant idea to visit this wonderfull country, so you will not regret this choice!`)
 
