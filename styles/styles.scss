@@ -1,6 +1,6 @@
-$primary: white;
+$primary: #fff;
 $secondary: #141178;
-$background: white;
+$background: #f6f3e5;
 $heading: 'Just Another Hand', cursive;
 $secHeading: 'Open Sans', sans-serif;
 
@@ -19,68 +19,59 @@ $secHeading: 'Open Sans', sans-serif;
     justify-content: center;
 }
 
+@import "partials/setup.scss";
+@import "partials/header.scss";
+@import "partials/main.scss";
+@import "partials/results.scss";
 
+html{
+    font-size: 10px;
+}
 button {
     text-decoration: none;
-    border: 2px solid white;
     width: 50px;
     height: 50px;
     margin: 0 auto;
     border-radius: 50%;
     left: 0;
     right: 0;
+    border: 2px solid $primary;
+    background-color: rgba(255,255,255,0.3);
     img {
-        font-size: 20px;
-        color: papayawhip;
         text-align: center;
-        width: 100%;
+        width: 80%;
+        padding-top: 5%;
     }
 }
 
-
-@import "partials/setup.scss";
-@import "partials/header.scss";
-@import "partials/main.scss";
-@import "partials/results.scss";
-
-
-
 body {
     font-family: $heading;
-    background-color: papayawhip;
+    background-color: $background;
     text-align: center;
     text-transform: uppercase;
-
+    letter-spacing: 1px;
+    color: $primary;
 }
 
 h2 {
-    font-size: 22px;
-    letter-spacing: 1px;
-    color: $primary;
+    font-size: 2.2rem;
+    line-height: 30px; 
 }
 
 h1 {
     font-size: 60px;
     text-transform: uppercase;
-    color: $primary;
 }
 
 p {
     line-height: 25px;
 }
 
-
-// .wrapper{
-//     max-width: 1180px;
-//     // margin: 0 auto;
-// }
-
-
 footer {
     background-color:white;
      p {
         color: #141178;
-        font-size: 18px;
+        font-size: 1.8rem;
         padding-top: 20px;
         padding-bottom: 20px;
         text-align: center;

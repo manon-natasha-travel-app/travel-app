@@ -1,7 +1,13 @@
 header {
     position: relative;
-    font-family: $heading;
-    
+    h1 {
+        color: $secondary;
+        font-size: 9rem;
+        @media (max-width: 480px) {
+            font-size: 7rem;
+            margin:5px 0;
+        }
+    } 
 }
 
 .header-banner {
@@ -10,23 +16,8 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
+    @media (max-width: 480px) {
+        padding: 10px;
+    }
 }
-
-
-// #firstButton {
-//     @extend .button;
-//     position: absolute;
-//     bottom: -70px;
-// }
-
-// .submitButton{
-//     width: 250px;
-//     height: 60px;
-//     border: 2px solid $primary;
-//     border-radius: 30px;
-//     text-decoration: none;
-//     background: rgba(250,250,250,0.2);
-//     color: $primary; 
-// }

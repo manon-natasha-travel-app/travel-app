@@ -1,4 +1,6 @@
-.polaroid, .header-banner, .question, .result-container {
+.polaroid, .header-banner, .question-01,
+.question-02,
+.question-03, .result-container {
   background-size: cover;
   background-position: center;
   width: 90%;
@@ -21,21 +23,6 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
-
-button {
-  text-decoration: none;
-  border: 2px solid white;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  border-radius: 50%;
-  left: 0;
-  right: 0; }
-  button img {
-    font-size: 20px;
-    color: papayawhip;
-    text-align: center;
-    width: 100%; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
@@ -172,8 +159,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 header {
-  position: relative;
-  font-family: "Just Another Hand", cursive; }
+  position: relative; }
+  header h1 {
+    color: #141178;
+    font-size: 9rem; }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 7rem;
+        margin: 5px 0; } }
 
 .header-banner {
   display: -webkit-box;
@@ -189,17 +182,21 @@ header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: white;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/travelApp-banner.jpg");
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg"); }
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/banner_filter.jpg");
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg"); }
+  @media (max-width: 480px) {
+    .header-banner {
+      padding: 10px; } }
 
 .slider {
+  margin: 30px 0;
   width: 60%;
-  margin-top: 400px;
   border-radius: none;
   outline: none;
+  height: 5px;
+  -webkit-appearance: none;
   -webkit-transition: .2s;
   -webkit-transition: opacity .2s;
   -o-transition: opacity .2s;
@@ -211,7 +208,7 @@ header {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: white;
+  background: #fff;
   cursor: pointer;
   border: none; }
 
@@ -219,12 +216,61 @@ header {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: white;
+  background: #fff;
   cursor: pointer;
   border: none; }
 
-h2 {
-  text-align: center; }
+.question-01,
+.question-02,
+.question-03 {
+  padding: 250px 0px 0px 0px; }
+  .question-01 h2,
+  .question-02 h2,
+  .question-03 h2 {
+    font-size: 1.8rem;
+    padding-bottom: 20px; }
+
+.question-01 {
+  background-image: url("./../images/happy_filter.jpg"); }
+
+.question-02 {
+  background-image: url("./../images/forrest_filter.jpg"); }
+
+.question-03 {
+  background-image: url("./../images/internet_filter.jpg"); }
+
+.rotate {
+  -webkit-animation: rotate 0.5s both;
+  animation: rotate 0.5s both; }
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+.polaroid-container {
+  position: relative; }
+
+#fourthButton {
+  color: #141178;
+  font-size: 1.6rem;
+  padding-top: 5px;
+  text-align: center;
+  letter-spacing: 5px;
+  width: 100px;
+  height: 40px;
+  border-radius: 30px; }
 
 .happinessQuestion,
 .forestQuestion,
@@ -236,89 +282,81 @@ h2 {
   .happinessQuestion::before {
     content: "half empty";
     position: absolute;
-    left: 0;
+    left: 30px;
     bottom: 0;
     color: white;
-    font-size: 20px; }
+    font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      .happinessQuestion::before {
+        left: 0; } }
   .happinessQuestion::after {
     content: "half full";
     position: absolute;
-    right: 0;
+    right: 30px;
     bottom: 0;
     color: white;
-    font-size: 20px; }
+    font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      .happinessQuestion::after {
+        right: 0; } }
 
 .forestQuestion {
   position: relative; }
   .forestQuestion::before {
     content: "big city";
     position: absolute;
-    left: 0;
+    left: 30px;
     bottom: 0;
     color: white;
-    font-size: 20px; }
+    font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      .forestQuestion::before {
+        left: 0;
+        width: 50px;
+        text-align: center;
+        font-size: 1.4rem; } }
   .forestQuestion::after {
     content: "full forest";
     position: absolute;
-    right: 0;
+    right: 30px;
     bottom: 0;
     color: white;
-    font-size: 20px; }
+    font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      .forestQuestion::after {
+        right: 0;
+        width: 50px;
+        text-align: center;
+        font-size: 1.4rem; } }
 
 .internetQuestion {
   position: relative; }
   .internetQuestion::before {
     content: "low connection";
     position: absolute;
-    left: 0;
+    left: 30px;
     bottom: 0;
     color: white;
-    font-size: 20px; }
+    font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      .internetQuestion::before {
+        left: 0;
+        width: 50px;
+        text-align: center;
+        font-size: 1.4rem; } }
   .internetQuestion::after {
     content: "high connection";
     position: absolute;
-    right: 0;
+    right: 30px;
     bottom: 0;
     color: white;
-    font-size: 20px; }
-
-.question {
-  background-image: url("./../images/travelApp-banner.jpg"); }
-
-.rotate {
-  -webkit-animation: rotate 0.5s both;
-  animation: rotate 0.5s both; }
-
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg); } }
-
-@keyframes rotate {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg); } }
-
-.polaroid-container {
-  position: relative; }
-
-.sortButton, button[type=submit], .reset {
-  width: 150px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 2px solid white;
-  border-radius: 30px;
-  color: white;
-  font-size: 20px; }
-
-.reset {
-  color: black;
-  border: 2px solid grey; }
+    font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      .internetQuestion::after {
+        right: 0;
+        width: 50px;
+        text-align: center;
+        font-size: 1.4rem; } }
 
 .results {
   position: relative; }
@@ -348,7 +386,9 @@ h2 {
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
   @media (max-width: 768px) {
     .flag {
       -webkit-box-orient: vertical;
@@ -356,19 +396,26 @@ h2 {
       -ms-flex-direction: column;
       flex-direction: column; } }
   .flag img {
-    border: 1px solid grey;
+    -webkit-box-shadow: 2px 2px 6px grey;
+    box-shadow: 2px 2px 6px grey;
     min-height: 180px;
     margin: 10px; }
+  .flag img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out; }
 
-.flag img:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  -webkit-transition: all .5s ease-in-out;
-  -o-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-  -webkit-box-shadow: 0px 0px 5px black;
-  box-shadow: 0px 0px 5px black; }
+.fa-spinner {
+  font-size: 50px;
+  color: #141178;
+  position: absolute;
+  z-index: 40;
+  top: 50%;
+  left: 50%;
+  right: 0; }
 
 .unknown {
   display: -webkit-box;
@@ -385,14 +432,13 @@ h2 {
   -ms-flex-align: center;
   align-items: center; }
 
-.fa-spinner {
-  font-size: 50px;
+.reset {
+  width: 150px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  font-size: 1.8rem;
   color: #141178;
-  position: absolute;
-  z-index: 40;
-  top: 50%;
-  left: 50%;
-  right: 0; }
+  border: 2px solid grey; }
 
 .hidden {
   display: none; }
@@ -412,38 +458,98 @@ h2 {
   position: absolute;
   margin: 0 auto;
   width: 90vw;
-  height: 80vh;
+  height: 90vh;
   top: 30px;
   bottom: 0;
   right: 0;
   left: 0;
   padding: 50px;
-  background: white;
+  background: #fff;
   z-index: 2;
-  font-family: "Open Sans", sans-serif;
-  text-transform: lowercase; }
+  text-align: left; }
+  @media (max-width: 480px) {
+    .pop-up {
+      padding: 30px; } }
   .pop-up h2 {
-    text-transform: uppercase;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+    line-height: 50px;
     color: #141178;
-    font-size: 60px;
-    font-family: "Just Another Hand", cursive; }
+    font-size: 5rem;
+    font-family: "Just Another Hand", cursive;
+    margin: 0;
+    text-align: left; }
+    @media (max-width: 480px) {
+      .pop-up h2 {
+        font-size: 4rem;
+        padding: 10px 0; } }
+  .pop-up p {
+    margin: 0; }
+    @media (max-width: 480px) {
+      .pop-up p {
+        font-size: 1.4rem; } }
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3; }
+
+.close:hover {
+  opacity: 1; }
+
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333; }
+
+.close:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.close:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+html {
+  font-size: 10px; }
+
+button {
+  text-decoration: none;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.3); }
+  button img {
+    text-align: center;
+    width: 80%;
+    padding-top: 5%; }
 
 body {
   font-family: "Just Another Hand", cursive;
-  background-color: papayawhip;
+  background-color: #f6f3e5;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff; }
 
 h2 {
-  font-size: 22px;
-  letter-spacing: 1px;
-  color: white; }
+  font-size: 2.2rem;
+  line-height: 30px; }
 
 h1 {
   font-size: 60px;
-  text-transform: uppercase;
-  color: white; }
+  text-transform: uppercase; }
 
 p {
   line-height: 25px; }
@@ -452,7 +558,7 @@ footer {
   background-color: white; }
   footer p {
     color: #141178;
-    font-size: 18px;
+    font-size: 1.8rem;
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
