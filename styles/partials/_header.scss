@@ -2,7 +2,11 @@ header {
     position: relative;
     h1 {
         color: $secondary;
-        font-size: 90px;
+        font-size: 9rem;
+        @media (max-width: 480px) {
+            font-size: 7rem;
+            margin:5px 0;
+        }
     } 
 }
 
@@ -13,4 +17,7 @@ header {
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
+    @media (max-width: 480px) {
+        padding: 10px;
+    }
 }

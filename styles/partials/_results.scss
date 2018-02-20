@@ -31,11 +31,11 @@
         min-height: 180px;
         margin: 10px;
     }
-}
-.flag img:hover {
-    transform: scale(1.1);
-    transition: all .5s ease-in-out;
-    
+    img:hover {
+        transform: scale(1.1);
+        transition: all .5s ease-in-out;
+        
+    }
 }
 
 .fa-spinner {
@@ -55,6 +55,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.reset{
+    width: 150px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 30px;
+    font-size: 1.8rem;
+    color: $secondary;
+    border: 2px solid grey;
 }
 
 // styling pop-up
@@ -86,25 +94,26 @@
     background: $primary;
     z-index: 2;
     text-align: left;
+    @media (max-width: 480px) {
+        padding: 30px;
+    }
     h2 {
         padding-bottom: 30px;
         line-height: 50px;
         color: $secondary;
-        font-size: 50px;
+        font-size: 5rem;
         font-family: $heading;
         margin: 0;
         text-align: left;
+        @media (max-width: 480px) {
+            font-size: 4rem;
+            padding: 10px 0;
+        }
     }
     p {
         margin: 0;
-    }
-
-    @media (max-width: 480px){
-        h2 {
-            font-size: 40px;
-        }
-        p {
-            font-size: 14px;
+        @media (max-width: 480px) {
+            font-size: 1.4rem;
         }
     }
 }
