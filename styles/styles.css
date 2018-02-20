@@ -1,4 +1,4 @@
-.polaroid, .header-banner, .question, .result-container {
+.polaroid, .header-banner, .question-01, .question-02, .question-03, .result-container {
   background-size: cover;
   background-position: center;
   width: 90%;
@@ -24,18 +24,18 @@
 
 button {
   text-decoration: none;
-  border: 2px solid white;
   width: 50px;
   height: 50px;
   margin: 0 auto;
   border-radius: 50%;
   left: 0;
-  right: 0; }
+  right: 0;
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.3); }
   button img {
-    font-size: 20px;
-    color: papayawhip;
     text-align: center;
-    width: 100%; }
+    width: 80%;
+    padding-top: 5%; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
@@ -174,6 +174,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 header {
   position: relative;
   font-family: "Just Another Hand", cursive; }
+  header h1 {
+    color: #e41414;
+    font-size: 90px; }
 
 .header-banner {
   display: -webkit-box;
@@ -189,11 +192,11 @@ header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: white;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/travelApp-banner.jpg");
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg");
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/travelApp-banner.jpg"); }
+  color: #fff;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(1, 22, 50, 0.45))), url("./../images/banner_filter.jpg");
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(1, 22, 50, 0.45)), url("./../images/banner_filter.jpg"); }
 
 .slider {
   width: 60%;
@@ -211,7 +214,7 @@ header {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: white;
+  background: #fff;
   cursor: pointer;
   border: none; }
 
@@ -219,15 +222,21 @@ header {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: white;
+  background: #fff;
   cursor: pointer;
   border: none; }
 
 h2 {
   text-align: center; }
 
-.question {
-  background-image: url("./../images/travelApp-banner.jpg"); }
+.question-01 {
+  background-image: url("./../images/mountain_filter.jpg"); }
+
+.question-02 {
+  background-image: url("./../images/forrest_filter.jpg"); }
+
+.question-03 {
+  background-image: url("./../images/internet_filter.jpg"); }
 
 .rotate {
   -webkit-animation: rotate 0.5s both;
@@ -238,19 +247,27 @@ h2 {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg); } }
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
 @keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg); } }
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 
 .polaroid-container {
   position: relative; }
+
+#fourthButton {
+  color: #fff;
+  text-align: center;
+  letter-spacing: 5px;
+  width: 100px;
+  height: 40px;
+  border-radius: 30px; }
 
 .results {
   position: relative; }
@@ -260,7 +277,7 @@ h2 {
   padding: 100px;
   width: 100%;
   height: 100vh;
-  color: #141178;
+  color: #e41414;
   -webkit-box-shadow: none;
   box-shadow: none;
   margin-bottom: 0; }
@@ -280,7 +297,9 @@ h2 {
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
   @media (max-width: 768px) {
     .flag {
       -webkit-box-orient: vertical;
@@ -304,7 +323,7 @@ h2 {
 
 .fa-spinner {
   font-size: 50px;
-  color: #141178;
+  color: #e41414;
   position: absolute;
   z-index: 40;
   top: 50%;
@@ -335,32 +354,32 @@ h2 {
   right: 0;
   left: 0;
   padding: 50px;
-  background: white;
+  background: #fff;
   z-index: 2;
   font-family: "Open Sans", sans-serif;
   text-transform: lowercase; }
   .pop-up h2 {
     text-transform: uppercase;
     padding-bottom: 10px;
-    color: #141178;
+    color: #e41414;
     font-size: 60px;
     font-family: "Just Another Hand", cursive; }
 
 body {
   font-family: "Just Another Hand", cursive;
-  background-color: papayawhip;
+  background-color: #F4F1DD;
   text-align: center;
   text-transform: uppercase; }
 
 h2 {
   font-size: 22px;
   letter-spacing: 1px;
-  color: white; }
+  color: #fff; }
 
 h1 {
   font-size: 60px;
   text-transform: uppercase;
-  color: white; }
+  color: #fff; }
 
 p {
   line-height: 25px; }

@@ -1,6 +1,6 @@
-$primary: white;
-$secondary: #141178;
-$background: white;
+$primary: #fff;
+$secondary: #e41414;
+$background: #F4F1DD;
 $heading: 'Just Another Hand', cursive;
 $secHeading: 'Open Sans', sans-serif;
 
@@ -22,18 +22,19 @@ $secHeading: 'Open Sans', sans-serif;
 
 button {
     text-decoration: none;
-    border: 2px solid white;
+    // border: 2px solid white;
     width: 50px;
     height: 50px;
     margin: 0 auto;
     border-radius: 50%;
     left: 0;
     right: 0;
+    border: 2px solid $primary;
+    background-color: rgba(255,255,255,0.3);
     img {
-        font-size: 20px;
-        color: papayawhip;
         text-align: center;
-        width: 100%;
+        width: 80%;
+        padding-top: 5%;
     }
 }
 
@@ -47,7 +48,7 @@ button {
 
 body {
     font-family: $heading;
-    background-color: papayawhip;
+    background-color: $background;
     text-align: center;
     text-transform: uppercase;
 

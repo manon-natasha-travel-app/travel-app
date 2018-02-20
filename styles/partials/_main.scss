@@ -1,13 +1,9 @@
 
 .slider {
-    // -webkit-appearance: none;
     width: 60%;
     margin-top: 400px;
-    // height: 5px;
     border-radius: none;   
-    // background: white;
     outline: none;
-    // opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
@@ -18,7 +14,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: white;
+    background: $primary;
     cursor: pointer;
     border: none;
 }
@@ -27,7 +23,7 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: white;
+    background: $primary;
     cursor: pointer;
     border: none;
 }
@@ -37,9 +33,19 @@ h2{
 }
 
 
-.question {
+.question-01 {
     @extend .polaroid;
-    background-image: url("./../images/travelApp-banner.jpg");  
+    background-image: url("./../images/mountain_filter.jpg");  
+}
+
+.question-02 {
+    @extend .polaroid;
+    background-image: url("./../images/forrest_filter.jpg");  
+}
+
+.question-03 {
+    @extend .polaroid;
+    background-image: url("./../images/internet_filter.jpg");  
 }
 
 
@@ -51,7 +57,7 @@ h2{
         transform: rotate(0deg);
     }
     100%{
-        transform: rotate(450deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -59,3 +65,12 @@ h2{
     position: relative;
 }
 
+
+#fourthButton {
+    color: $primary;
+    text-align: center;
+    letter-spacing: 5px;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+}
