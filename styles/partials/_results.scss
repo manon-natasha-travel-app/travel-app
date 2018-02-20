@@ -37,7 +37,12 @@
     
 }
 
-
+.unknown{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .fa-spinner {
     font-size: 50px;

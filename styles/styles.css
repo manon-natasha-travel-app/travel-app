@@ -226,6 +226,62 @@ header {
 h2 {
   text-align: center; }
 
+.happinessQuestion,
+.forestQuestion,
+.internetQuestion {
+  width: 90%; }
+
+.happinessQuestion {
+  position: relative; }
+  .happinessQuestion::before {
+    content: "half empty";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    font-size: 20px; }
+  .happinessQuestion::after {
+    content: "half full";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 20px; }
+
+.forestQuestion {
+  position: relative; }
+  .forestQuestion::before {
+    content: "big city";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    font-size: 20px; }
+  .forestQuestion::after {
+    content: "full forest";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 20px; }
+
+.internetQuestion {
+  position: relative; }
+  .internetQuestion::before {
+    content: "low connection";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    font-size: 20px; }
+  .internetQuestion::after {
+    content: "high connection";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 20px; }
+
 .question {
   background-image: url("./../images/travelApp-banner.jpg"); }
 
@@ -251,6 +307,18 @@ h2 {
 
 .polaroid-container {
   position: relative; }
+
+.sortButton, button[type=submit], .reset {
+  width: 150px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  border-radius: 30px;
+  color: white;
+  font-size: 20px; }
+
+.reset {
+  color: black;
+  border: 2px solid grey; }
 
 .results {
   position: relative; }
@@ -301,6 +369,21 @@ h2 {
   transition: all .5s ease-in-out;
   -webkit-box-shadow: 0px 0px 5px black;
   box-shadow: 0px 0px 5px black; }
+
+.unknown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .fa-spinner {
   font-size: 50px;

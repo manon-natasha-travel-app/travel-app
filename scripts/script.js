@@ -11,26 +11,22 @@ const travelSearch = {}
 
 travelSearch.filterCountry = () => {
 
-    $("form").on("submit", function (event) {
-        event.preventDefault();
-        userHappiness = $("input[name=happinessValue]").val();
-        console.log(userHappiness);
+    userHappiness = $("input[name=happinessValue]").val();
+    console.log(userHappiness);
 
-        userForest = $("input[name=forestValue]").val();
-        console.log(userForest);
+    userForest = $("input[name=forestValue]").val();
+    console.log(userForest);
 
-        userInternet = $("input[name=internetValue]").val();
-        console.log(userInternet);
+    userInternet = $("input[name=internetValue]").val();
+    console.log(userInternet);
 
 
-        // userInputs = userHappiness, userForest, userInternet;
-        travelSearch.getCountry(userHappiness);
-    })
+    travelSearch.getCountry(userHappiness, userForest, userInternet);
 }
 
 //function to get the location data from the api 
 
-travelSearch.getCountry = (userInputs) => {
+travelSearch.getCountry = (userHappiness, userForest, userInternet) => {
     $.ajax({
         url: "http://inqstatsapi.inqubu.com",
         dataType: "json",
@@ -42,31 +38,31 @@ travelSearch.getCountry = (userInputs) => {
             data: "happiness_index,forest_area_percent,density,size,bigmac_index,internetusers_percent,corruption_index,tourist_arrivals,size,population"
         }
     }).then(function (res) {
-        console.log(res);
+        console.log('res', res);
 
         //simplify my array
-        const mappedCountries = res.map(function(index){
-            return {
-                countryName: index.countryName,
-                countryCode: index.countryCode,
-                happiness_index: index.happiness_index,
-                forest_area_percent: index.forest_area_percent,
-                internetusers_percent: index.internetusers_percent,
-                density: index.density,
-                corruption_index: index.corruption_index,
-                bigmac_index: index.bigmac_index, 
-                tourist_arrivals: index.tourist_arrivals,
-                size: index.size,
-                population: index.population
-            }
-        });
-        console.log(mappedCountries);
+        // const mappedCountries = res.map(function(index){
+        //     return {
+        //         countryName: index.countryName,
+        //         countryCode: index.countryCode,
+        //         happiness_index: index.happiness_index,
+        //         forest_area_percent: index.forest_area_percent,
+        //         internetusers_percent: index.internetusers_percent,
+        //         density: index.density,
+        //         corruption_index: index.corruption_index,
+        //         index: index.bigmac_index, 
+        //         tourist_arrivals: index.tourist_arrivals,
+        //         size: index.size,
+        //         population: index.population
+        //     }
+        // });
+        // console.log('mappedCountries', mappedCountries);
 
-        const filterdCountries = mappedCountries.filter(function(item){
+        const filterdCountries = res.filter(function (item) {
             return item.internetusers_percent < (userInternet + 25) && item.internetusers_percent > (userInternet - 25);
         }).filter(function (item) {
             return item.forest_area_percent < (userForest + 15) && item.forest_area_percent > (userForest - 15);
-        }).filter(function(item) {
+        }).filter(function (item) {
             return item.happiness_index < (userHappiness + 500) && item.happiness_index > (userHappiness - 500);
         });
 
@@ -75,45 +71,54 @@ travelSearch.getCountry = (userInputs) => {
         $('.loading').hide();
     });
 }
+
 function scroll(selectDiv, selectButton) {
-    var viewportHeight = Math.max(window.innerHeight || 0);
-    var marginTop = viewportHeight * 5 / 100;
-    var scrollTopTarget = selectDiv.offset().top;
-    var scrollTopValue = scrollTopTarget - marginTop;
+    const viewportHeight = Math.max(window.innerHeight || 0);
+    const marginTop = viewportHeight * 5 / 100;
+    const scrollTopTarget = selectDiv.offset().top;
+    const scrollTopValue = scrollTopTarget - marginTop;
     $('html').animate({
         scrollTop: scrollTopValue,
     }, 1000);
-    
-    // if (selectButton !== undefined){
-    //     selectButton.addClass("rotate");
-    // }
+
+    if (selectButton !== undefined) {
+        selectButton.addClass("rotate");
+    }
 };
 
 
-$('#firstButton').on('click', function(){
+$('#firstButton').on('click', function (e) {
+    e.preventDefault();
     scroll($('.firstDiv'), $('#firstButton'))
 });
 
-$('#secButton').on('click', function () {
+$('#secButton').on('click', function (e) {
+    e.preventDefault();
+
     scroll($('.secDiv'), $('#secButton'))
 });
-$('#thirdButton').on('click', function () {
+$('#thirdButton').on('click', function (e) {
+    e.preventDefault();
+
     scroll($('.thirdDiv'), $('#thirdButton'))
 })
 
-$('#fourthButton').on('click', function () {
-    // console.log($('.results'))
-    $('.results').removeClass('hidden')
-    // console.log($('.results'))
-    scroll($('.results') )
-})
+// $('#fourthButton').on('click', function() {
+//     scroll($('.fourthDiv'))
+// })
 
 
+// $('#fourthButton').on('click', function () {
+//     console.log($('.results'))
+//     $('.results').removeClass('hidden')
+//     console.log($('.results'))
+//     scroll($('.results') )
+// })
 
 
 travelSearch.displayCountry = (filterdCountries) => {
     if (filterdCountries.length === 0) {
-        $(".flag").append("<h2>Sorry there are no countries with those requirements. Sort Again!</h2>  <button class='reset'>Sort!</button>");
+        $(".flag").append("<div class= 'unknown'><h3>Sorry there are no countries with those requirements. Sort Again!</h3> <button class='reset'>Sort!</button></div>");
 
         $('.reset').on('click', function () {
             $('html').animate({
@@ -123,26 +128,15 @@ travelSearch.displayCountry = (filterdCountries) => {
             console.log("This is clicked");
         });
     } else {
-        filterdCountries.forEach(function(item){
+        filterdCountries.forEach(function (item) {
             console.log(item);
-            // event.preventDefault();
-            $(".flag").append(`<div class=${item.countryCode}><img  src="images/flags/${item.countryCode}.png"></div><button class='reset'>Sort!</button>`);
-            $('.reset').on('click', function () {
-                $('html').animate({
-                    scrollTop: $('#countryParams').offset().top
-                }, 1000);
-                $('.flag').empty();
-                console.log("This is clicked"); 
-            });
+            $(".flag").append(`<div class=${item.countryCode}><img  src="images/flags/${item.countryCode}.png"></div>`);
+
             $(`.${item.countryCode}`).on("click", function () {
                 $(".pop-up").toggleClass("hidden");
                 $(".overlay").toggleClass("greyed");
 
-                
-                
                 const title = $('<h2>').text(`Your next destination will be ${item.countryName}!`)
-
-                // const population = $('<p>').text(`This country is worth checking out and ${item.population} locals will give you a warm welcome!`)
 
                 const population_n = parseInt(item.population).toLocaleString();
                 const population = $('<p>').text(`This country is worth checking out and ${population_n} locals will give you a warm welcome!`)
@@ -157,41 +151,21 @@ travelSearch.displayCountry = (filterdCountries) => {
 
                 const size = $('<p>').text(`There are ${item.size} square kilometers for you to discover, wait no longer!`)
 
-                console.log(`${item.countryCode}` === item.countryCode)
+
                 if (`${item.countryCode}` === item.countryCode) {
                     ($('.pop-up').append(title, population, size, density, bigmacInfo, tourist)).show();
                 } else {
-                    console.log('fuck')
                 }
             });
             $(".pop-up").on("click", function () {
-                console.log('disapear')
                 $(this).toggleClass("hidden").empty();
                 $(".overlay").toggleClass("greyed");
             })
         });
-        
     };
-
 };
 
-travelSearch.scrollNext = () => {
-    $('.toCountryParams').on('change', function () {
-        $('html').animate({
-            scrollTop: $('#countryParams').offset().top
-        }, 1000);
-    });
-    $('.toSecondQuestion').on('change', function () {
-        $('html').animate({
-            scrollTop: $('#secondQuestion').offset().top
-        }, 1000);
-    });
-    $('.toThirdQuestion').on('change', function () {
-        $('html').animate({
-            scrollTop: $('#thirdQuestion').offset().top
-        }, 1000);
-    });
-}
+
 
 // $('button').on('click', function () {
 //     $('html').animate({
@@ -200,12 +174,20 @@ travelSearch.scrollNext = () => {
 // });
 
 //creates function to launch our app on page load
-travelSearch.init = () => {
-    travelSearch.filterCountry();
-    travelSearch.scrollNext();
-}
+// travelSearch.init = () => {
+//     travelSearch.filterCountry();
+// }
+
 
 //document ready
 $(function () {
-    travelSearch.init();
+    console.log('I am ready')
+    $('form').on("submit", function (event) {
+        event.preventDefault();
+        travelSearch.filterCountry();
+        console.log($('.results'))
+        $('.results').removeClass('hidden')
+        console.log($('.results'))
+        scroll($('.results'))
+    })
 });

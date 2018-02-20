@@ -36,6 +36,70 @@ h2{
     text-align: center;
 }
 
+.happinessQuestion,
+.forestQuestion,
+.internetQuestion{
+    width: 90%;
+}
+.happinessQuestion{
+    position: relative;
+    &::before{
+        content:"half empty";
+        position: absolute;
+        left:0;
+        bottom:0;
+        color: white;
+        font-size: 20px;
+    }
+    &::after{
+        content:"half full";
+        position: absolute;
+        right:0;
+        bottom:0;
+        color: white;
+        font-size: 20px;
+    }
+}
+.forestQuestion{
+    position: relative;
+    &::before{
+        content:"big city";
+        position: absolute;
+        left:0;
+        bottom:0;
+        color: white;
+        font-size: 20px;
+    }
+    &::after{
+        content:"full forest";
+        position: absolute;
+        right:0;
+        bottom:0;
+        color: white;
+        font-size: 20px;
+    }
+}
+.internetQuestion{
+   position: relative;
+    &::before{
+        content:"low connection";
+        position: absolute;
+        left:0;
+        bottom:0;
+        color: white;
+        font-size: 20px;
+    }
+    &::after{
+        content:"high connection";
+        position: absolute;
+        right:0;
+        bottom:0;
+        color: white;
+        font-size: 20px;
+    } 
+}
+
+
 
 .question {
     @extend .polaroid;
@@ -59,3 +123,20 @@ h2{
     position: relative;
 }
 
+.sortButton{
+    width: 150px;
+    background: rgba(255,255,255,0.5);
+    border:2px solid white;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+}
+
+button[type=submit]{
+    @extend .sortButton;
+}
+.reset{
+    @extend .sortButton;
+    color:black;
+    border: 2px solid grey;
+}

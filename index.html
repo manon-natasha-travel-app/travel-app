@@ -38,10 +38,12 @@
 
             <section id="scrollStopSecond" class="polaroid-container firstDiv">
                 <div class=" question slide-container wrapper">
-                    <label for="happinessValue">
-                        <h2>Do you want a place where the glass of the locals is half empty or half full?</h2>
-                    </label>
-                    <input type="range" min="2500" max="7600" step="500" class="slider" id="happinessValue" name="happinessValue"/>
+                    <div class="happinessQuestion">
+                        <label for="happinessValue">
+                            <h2>Do you want a place where the glass of the locals is half empty or half full?</h2>
+                        </label>
+                        <input type="range" min="2500" max="7600" step="500" class="slider" id="happinessValue" name="happinessValue">
+                    </div>
                     <button id="secButton">
                         <img src="images/plane.svg" alt="">
                     </button>
@@ -55,12 +57,14 @@
 
             <section id="scrollStop" class="polaroid-container secDiv">
                 <div class="question slide-container wrapper">
-                    <label for="forestValue wrapper">
-                        <h2>
-                            Do you wanna get lost in the forrest or in bustling city streets?
-                        </h2>
-                    </label>
-                    <input type="range" min="0" max="100" step="5%" class="slider" id="forestValue" name="forestValue"/>
+                    <div class="forestQuestion">
+                        <label for="forestValue wrapper">
+                            <h2>
+                                Do you wanna get lost in the forrest or in bustling city streets?
+                            </h2>
+                        </label>
+                        <input type="range" min="0" max="100" step="5%" class="slider" id="forestValue" name="forestValue"/>
+                    </div>
                     <button id="thirdButton">
                         <img src="images/plane.svg" alt="">
                     </button>
@@ -74,22 +78,24 @@
 
             <section id="scrollStop" class="polaroid-container thirdDiv">
                 <div class="question slide-container wrapper">
-                    <label for="internetValue">
-                        <h2>
-                                Do you wanna be able to be online all day or spend far too much time trying to connect with the outside world?
-                        </h2>
-                    </label>
-                    <input type="range" min="0" max="100" step="5" class="slider" id="internetValue" name="internetValue"/>
-                    <button type="submit" id="fourthButton"/>
+                    <div class="internetQuestion">
+                        <label for="internetValue">
+                            <h2>
+                                    Do you wanna be able to be online all day or spend far too much time trying to connect with the outside world?
+                            </h2>
+                        </label>
+                        <input type="range" min="0" max="100" step="5" class="slider" id="internetValue" name="internetValue"/>
+                    </div>
+                    <button type="submit" id="fourthButton">Sort</button>
                 </div>
 
             </section>
 
             <!-- === Submit input goes here === -->
 
-            <div class="submitButton wrapper">
+            <!-- <div class="submitButton wrapper">
                 <input type="submit">
-            </div>
+            </div> -->
 
         </form>
 
